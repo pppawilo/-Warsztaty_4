@@ -19,29 +19,23 @@ function printBooks(data) {
 			.addClass("text-center")
 			.text(data[index].title);
 		$("#books").append(book);
-		book = $("<p>")
-			.addClass("text-center")
-			.text("id: " + data[index].id);
-		$("#books").append(book);
-		book = $("<p>")
-			.addClass("text-center")
-			.text("isbn: " + data[index].isbn);
-		$("#books").append(book);
 
-		book = $("<p>")
-			.addClass("text-center")
-			.text("author: " + data[index].author);
-		$("#books").append(book);
-		book = $("<p>")
-			.addClass("text-center")
-			.text("publisher: " + data[index].publisher);
-		$("#books").append(book);
-		book = $("<p>")
-			.addClass("text-center")
-			.text("type: " + data[index].type);
-		$("#books").append(book);
+		var bookTd = $("<td>").addClass("text-center");
+
+		book = $("<tr>").text("id: " + data[index].id);
+		bookTd.append(book);
+		book = $("<tr>").text("isbn: " + data[index].isbn);
+		bookTd.append(book);
+
+		book = $("<tr>").text("author: " + data[index].author);
+		bookTd.append(book);
+		book = $("<tr>").text("publisher: " + data[index].publisher);
+		bookTd.append(book);
+		book = $("<tr>").text("type: " + data[index].type);
+		bookTd.append(book);
 		book = $("<hr>");
-		$("#books").append(book);
+		bookTd.append(book);
+		$("#books").append(bookTd);
 	});
 }
 
