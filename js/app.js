@@ -46,16 +46,26 @@ function printBooks(data) {
 }
 
 $("#books-form").submit(function(e) {
+	var form = $("#books-form").serializeArray();
+	var formObject = {};
+	$.each(form, function(index, element) {
+		formObject[element.name] = element.value;
+	});
+	console.log(formObject);
+	console.log(JSON.stringify(formObject));
+
 	$.ajax({
+		headers: {
+			"Content-Type": "application/json"
+		},
 		type: "POST",
 		url: "http://localhost:8282/books",
-		data: $("#books-form").serialize(),
+		data: JSON.stringify(formObject),
 		dataType: "json",
 		success: function(data) {
 			alert(data);
 		}
 	});
-	console.log($("#books-form").serialize());
 
 	e.preventDefault();
 });
