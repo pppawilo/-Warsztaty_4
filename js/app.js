@@ -20,8 +20,9 @@ function printBooks(data) {
 			.text(data[index].title);
 		$("#books").append(book);
 
-		var bookTd = $("<td>").addClass("text-center");
-
+		var bookTd = $("<table>").addClass(
+			"table table-sm text-center table-bordered table-hover"
+		);
 		book = $("<tr>").text("id: " + data[index].id);
 		bookTd.append(book);
 		book = $("<tr>").text("isbn: " + data[index].isbn);
